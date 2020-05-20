@@ -6,7 +6,7 @@
 * {
   box-sizing: border-box;
   font-family: "Roboto";
-  font-size: 20px;
+  font-size: 16px;
 }
 
 img {
@@ -16,7 +16,7 @@ img {
 
 body {
   margin: 0;
-  padding-top: 100px;
+  padding-top: 70px;
   background-color: #050016;
   position: relative;
   height: 100vh;
@@ -37,7 +37,7 @@ body {
 }
 
 .side-bar {
-  width: 330px;
+  width: 260px;
   height: 100%;
   background-color: #000622;
   float: left;
@@ -90,7 +90,7 @@ body {
 header {
   display: flex;
   width: 100%;
-  height: 100px;
+  height: 70px;
   background-color: #143c7d;
   position: fixed;
   top: 0;

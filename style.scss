@@ -1,4 +1,4 @@
-$nav: 100px;
+$nav: 70px;
 @font-face {
   src: url("fonts/SpartanMB-Black.woff");
   font-family: "SpartanMB-Black";
@@ -7,7 +7,7 @@ $nav: 100px;
 * {
   box-sizing: border-box;
   font-family: "Roboto";
-  font-size: 20px;
+  font-size: 16px;
 }
 img {
   width: auto;
@@ -35,7 +35,7 @@ body {
   flex-wrap: wrap;
 }
 .side-bar {
-  width: 330px;
+  width: 260px;
   height: 100%;
   background-color: #000622;
   float: left;
