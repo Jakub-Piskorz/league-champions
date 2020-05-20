@@ -32,6 +32,23 @@ class leagueAPI {
       return;
     }
   }
+  _createCard({ root = this.htmlRoot, name = null, img = null, type = null }) {
+    let card = document.createElement("div");
+    card.setAttribute("class", "card");
+    let cardName = document.createElement("h3");
+    cardName.setAttribute("class", "card-name");
+    card.appendChild(cardName);
+    root.appendChild(card);
+    console.log("Champion card created!");
+  }
 }
 
 const champs = new leagueAPI();
+
+champs._createCard({
+  root: document.querySelector("#root"),
+  name: "Syndra",
+  type: "Mage",
+  img:
+    "http://ddragon.leagueoflegends.com/cdn/10.10.3216176/img/champion/Syndra.png",
+});

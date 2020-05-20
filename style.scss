@@ -1,13 +1,42 @@
 $nav: 70px;
+
+/*   ================
+        Typography
+     ================ */
+
 @font-face {
   src: url("fonts/SpartanMB-Black.woff");
   font-family: "SpartanMB-Black";
 }
 
 * {
-  box-sizing: border-box;
   font-family: "Roboto";
   font-size: 16px;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "SpartanMB-Black";
+  color: #ffc105;
+  letter-spacing: 0.03em;
+}
+h1 {
+  font-size: 45px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 26px;
+}
+
+/*   ===============
+          Basic
+     =============== */
+* {
+  box-sizing: border-box;
 }
 img {
   width: auto;
@@ -22,6 +51,11 @@ body {
   height: 100vh;
   overflow-y: scroll;
 }
+
+/*   ================
+         Sections
+     ================ */
+
 #root {
   color: white;
   display: flex;
@@ -33,6 +67,20 @@ body {
   color: #fffce3;
   float: left;
   flex-wrap: wrap;
+}
+header {
+  display: flex;
+  width: 100%;
+  height: $nav;
+  background-color: #143c7d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  img {
+    height: 100%;
+  }
+  padding-left: 20px;
 }
 .side-bar {
   width: 260px;
@@ -79,36 +127,4 @@ body {
       -webkit-transform: rotate(45deg);
     }
   }
-}
-header {
-  display: flex;
-  width: 100%;
-  height: $nav;
-  background-color: #143c7d;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  img {
-    height: 100%;
-  }
-  padding-left: 20px;
-}
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "SpartanMB-Black";
-  color: #ffc105;
-  letter-spacing: 0.03em;
-}
-h1 {
-  font-size: 45px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 26px;
 }
