@@ -1,3 +1,4 @@
+$nav: 100px;
 @font-face {
   src: url("fonts/SpartanMB-Black.woff");
   font-family: "SpartanMB-Black";
@@ -8,7 +9,6 @@
   font-family: "Roboto";
   font-size: 20px;
 }
-
 img {
   width: auto;
   height: auto;
@@ -16,13 +16,12 @@ img {
 
 body {
   margin: 0;
-  padding-top: 100px;
+  padding-top: $nav;
   background-color: #050016;
   position: relative;
   height: 100vh;
   overflow-y: scroll;
 }
-
 #root {
   color: white;
   display: flex;
@@ -35,7 +34,6 @@ body {
   float: left;
   flex-wrap: wrap;
 }
-
 .side-bar {
   width: 330px;
   height: 100%;
@@ -43,66 +41,59 @@ body {
   float: left;
   display: flex;
   flex-direction: column;
-}
+  li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #458fbd;
+    height: 70px;
+    &.sub {
+      background-color: inherit;
+    }
+  }
+  .arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px 3px 3px 3px;
+    margin-left: 20px;
+    &.right {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
 
-.side-bar li {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: #458fbd;
-  height: 70px;
-}
+    &.left {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
 
-.side-bar li.sub {
-  background-color: inherit;
-}
+    &.up {
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+    }
 
-.side-bar .arrow {
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px 3px 3px 3px;
-  margin-left: 20px;
+    &.down {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+  }
 }
-
-.side-bar .arrow.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.side-bar .arrow.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-
-.side-bar .arrow.up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
-
-.side-bar .arrow.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
 header {
   display: flex;
   width: 100%;
-  height: 100px;
+  height: $nav;
   background-color: #143c7d;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
+  img {
+    height: 100%;
+  }
   padding-left: 20px;
 }
-
-header img {
-  height: 100%;
-}
-
 h1,
 h2,
 h3,
@@ -112,16 +103,12 @@ h5 {
   color: #ffc105;
   letter-spacing: 0.03em;
 }
-
 h1 {
   font-size: 45px;
 }
-
 h2 {
   font-size: 30px;
 }
-
 h3 {
   font-size: 26px;
 }
-/*# sourceMappingURL=style.css.map */
