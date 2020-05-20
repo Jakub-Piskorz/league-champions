@@ -33,6 +33,10 @@ h3 {
   font-size: 26px;
 }
 
+h4 {
+  font-size: 22px;
+}
+
 /*   ===============
           Basic
      =============== */
@@ -47,52 +51,53 @@ img {
 
 body {
   margin: 0;
-  padding-top: 70px;
   background-color: #050016;
   position: relative;
   height: 100vh;
-  overflow-y: scroll;
 }
 
 /*   ================
          Sections
      ================ */
-#root {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: 15px;
-  max-width: 100%;
-  padding: 50px 50px 50px 70px;
-  margin: auto;
-  color: #fffce3;
-  float: left;
-  flex-wrap: wrap;
+#main {
+  display: grid;
+  grid-template-areas: "header header" "left main";
+  grid-template-columns: 320px 1fr;
+  grid-template-rows: 70px 1fr;
+  width: 100%;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 header {
   display: flex;
-  width: 100%;
-  height: 70px;
+  grid-area: header;
   background-color: #143c7d;
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
   padding-left: 20px;
+  grid-area: header;
 }
 
 header img {
   height: 100%;
 }
 
-.side-bar {
-  width: 260px;
+.main-container {
+  padding: 80px 55px 35px 100px;
   height: 100%;
+  font-size: 15px;
+  color: #fffce3;
+  grid-area: main;
+}
+
+.side-bar {
   background-color: #000622;
   float: left;
   display: flex;
   flex-direction: column;
+  grid-area: "left";
 }
 
 .side-bar li {
@@ -135,5 +140,41 @@ header img {
 .side-bar .arrow.down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  width: 100%;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.card-container .card {
+  display: flex;
+  width: 180px;
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #072b64;
+  padding: 2px;
+  margin: 15px 15px 25px;
+  text-align: center;
+  line-height: 0;
+  border-radius: 8px;
+}
+
+.card-container .card img {
+  width: 120px;
+  height: 120px;
+}
+
+.card-container .card h4 {
+  margin: 20px 0;
 }
 /*# sourceMappingURL=style.css.map */

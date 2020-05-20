@@ -6,10 +6,6 @@ class leagueAPI {
     this.htmlRoot = null;
     this.render = null;
   }
-  _error(err) {
-    throw new Error(err);
-    return;
-  }
   download() {
     console.log("Initiating download...");
     fetch(
@@ -23,20 +19,43 @@ class leagueAPI {
         this.json = data;
         this.list = Object.keys(data.data);
         console.log("Download completed.");
+        this.buildHtml();
       })
       .catch(this._error);
   }
-  buildHtml(htmlRoot = this.htmlRoot) {
-    if (!htmlRoot || !this.json) {
+  buildHtml(root = this.htmlRoot) {
+    if (!root || !this.json) {
       console.error("Not enough data. Try using .download()");
       return;
     }
+    for (let champ of this.list) {
+      this._createCard({
+        name: champ,
+        img: `${champ}.png`,
+      });
+    }
+  }
+  _error(err) {
+    throw new Error(err);
+    return;
   }
   _createCard({ root = this.htmlRoot, name = null, img = null, type = null }) {
     let card = document.createElement("div");
+    let cardImg = document.createElement("img");
+    let cardName = document.createElement("h4");
     card.setAttribute("class", "card");
-    let cardName = document.createElement("h3");
     cardName.setAttribute("class", "card-name");
+    if (name) {
+      cardName.innerHTML = name;
+    }
+    cardImg.setAttribute("class", "card-img");
+    if (img)
+      cardImg.setAttribute(
+        "src",
+        `http://ddragon.leagueoflegends.com/cdn/10.10.3216176/img/champion/${img}`
+      );
+
+    card.appendChild(cardImg);
     card.appendChild(cardName);
     root.appendChild(card);
     console.log("Champion card created!");
@@ -44,11 +63,5 @@ class leagueAPI {
 }
 
 const champs = new leagueAPI();
-
-champs._createCard({
-  root: document.querySelector("#root"),
-  name: "Syndra",
-  type: "Mage",
-  img:
-    "http://ddragon.leagueoflegends.com/cdn/10.10.3216176/img/champion/Syndra.png",
-});
+champs.download();
+champs.htmlRoot = document.querySelector(".card-container");
